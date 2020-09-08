@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img src="./images/avatar.svg" class="profile__avatar" alt="Аватар"> 
+                <div class="profile__info">
+                    <div class="profile__name-container">
+                        <h2 class="profile__name" id="name">Жак-Ив Кусто</h2>
+                        <button class="profile__edit-button" type="button"></button>
+                    </div>
+                    <p class="profile__job" id='job'>Исследователь океана</p>
+                </div>
+                <button class="profile__add-button" type="button"></button>
+            </section>
+        
+            <section class="elements">
+                <figure class="element">
+                    <img src="./images/kirill-pershin-dH-RKxKs6to-unsplash.jpg" class="element__img" alt="Карачаевск">
+                    <div class="element__info-section">
+                        <p class="element__description">Карачаевск</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>
+                <figure class="element">
+                    <img src="./images/moscow.jpg" class="element__img" alt="Москва">
+                    <div class="element__info-section">
+                        <p class="element__description">Москва</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>
+                <figure class="element">
+                    <img src="./images/dombai.jpg" class="element__img" alt="Домбай">
+                    <div class="element__info-section">
+                        <p class="element__description">Домбай</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>
+                <figure class="element">
+                    <img src="./images/elbrus.jpg" class="element__img" alt="эльбрус">
+                    <div class="element__info-section">
+                        <p class="element__description">Гора Эльбрус</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>
+                <figure class="element">
+                    <img src="./images/astrakhan.jpg" class="element__img" alt="Астрахань">
+                    <div class="element__info-section">
+                        <p class="element__description">Астрахань</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>
+                <figure class="element">
+                    <img src="./images/MSU.jpg" class="element__img" alt="МГУ">
+                    <div class="element__info-section">
+                        <p class="element__description">Московский государственный университет</p>
+                        <img src="./images/Vector.svg" class="element__like" alt="Лайк">
+                    </div>
+                </figure>                   
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+
+        <div class="popup">
+            <div class="popup__container">
+                <form class="popup__form">
+                    <button class="popup__close-button" type="button"></button>
+                    <fieldset class="popup__fieldset">
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <input type="text" class="popup__input popup__input_name" placeholder="Имя">
+                        <input type="text" class="popup__input popup__input_job" placeholder="Род занятий">
+                    </fieldset>
+                    <button class="popup__submit-button" type="button">Сохранить</button>
+                </form>    
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script> 
+</body>
+</html>
