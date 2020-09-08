@@ -1,6 +1,7 @@
 @import url(./__info-section/element__info-section.css);
 @import url(./__img/element__img.css);
 @import url(./__description/element__description.css);
+@import url(./__like-button/element__like-button.css);
 .element {
     display: flex;
     flex-direction: column;

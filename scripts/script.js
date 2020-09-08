@@ -11,20 +11,23 @@ let formElement = document.querySelector('.popup__form');
 
 function popupOpen(){
     popup.classList.toggle('popup_opened')
+
+    if (popup.classList.contains('popup_opened')){
     nameInput.value = name.textContent;
     jobInput.value = job.textContent;
+    }
 }
 
-function infoSave(){
+submitBtn.onclick = function(event){
+    event.preventDefault()
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
+    popupOpen();
 }
 
 
 
 editBtn.addEventListener('click', popupOpen);
 closeBtn.addEventListener('click', popupOpen);
-submitBtn.addEventListener('click', infoSave);
-submitBtn.addEventListener('click', popupOpen);
 
 

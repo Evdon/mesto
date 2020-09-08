@@ -1,5 +1,5 @@
 .profile__name-container {
     display: flex;
+    align-items: center;
     max-width: 436px;
-    max-height: 77px;
 }

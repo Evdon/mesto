@@ -2,8 +2,15 @@
 
 .header {
     max-width: 882px;
-    min-height: 74px;
+    max-height: 74px;
     padding: 45px 0 0;
     margin: 0 auto; 
     border-bottom: 1px solid #545454;
+}
+
+@media screen and (max-width: 882px){
+    .header {
+        padding: 28px 0 0;
+        max-height: 56px;
+}
 }
