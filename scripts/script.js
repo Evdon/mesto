@@ -18,8 +18,8 @@ function popupOpen(){
     }
 }
 
-submitBtn.onclick = function(event){
-    event.preventDefault()
+function formSubmitHandler (evt) {
+    evt.preventDefault();  
     name.textContent = nameInput.value;
     job.textContent = jobInput.value;
     popupOpen();
@@ -29,5 +29,6 @@ submitBtn.onclick = function(event){
 
 editBtn.addEventListener('click', popupOpen);
 closeBtn.addEventListener('click', popupOpen);
+formElement.addEventListener('submit', formSubmitHandler); 
 
 
