@@ -16,24 +16,24 @@
 .popup__close-button:hover {
     opacity: 0.6;
     cursor: pointer;
-  }
+}
 
-  @media screen and (max-width: 530px){
+@media screen and (max-width: 530px){
     .popup__close-button {
         right: -30px;
         top: -30px;
         width: 30px;
         height: 30px;
         background-size: 150%;
-}
+    }
 }
 
 @media screen and (max-width: 350px){
-  .popup__close-button {
-      right: 0;
-      top: -30px;
-      width: 30px;
-      height: 30px;
-      background-size: 150%;
-}
+    .popup__close-button {
+        right: 0;
+        top: -30px;
+        width: 30px;
+        height: 30px;
+        background-size: 150%;
+    }
 }
