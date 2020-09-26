@@ -25,84 +25,56 @@
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
-        
-            <section class="elements">
-                <figure class="element">
-                    <img src="./images/kirill-pershin-dH-RKxKs6to-unsplash.jpg" class="element__img" alt="Карачаевск">
-                    <div class="element__info-section">
-                        <p class="element__description">Карачаевск</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>
-                <figure class="element">
-                    <img src="./images/moscow.jpg" class="element__img" alt="Москва">
-                    <div class="element__info-section">
-                        <p class="element__description">Москва</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>
-                <figure class="element">
-                    <img src="./images/dombai.jpg" class="element__img" alt="Домбай">
-                    <div class="element__info-section">
-                        <p class="element__description">Домбай</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>
-                <figure class="element">
-                    <img src="./images/elbrus.jpg" class="element__img" alt="эльбрус">
-                    <div class="element__info-section">
-                        <p class="element__description">Гора Эльбрус</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>
-                <figure class="element">
-                    <img src="./images/astrakhan.jpg" class="element__img" alt="Астрахань">
-                    <div class="element__info-section">
-                        <p class="element__description">Астрахань</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>
-                <figure class="element">
-                    <img src="./images/MSU.jpg" class="element__img" alt="МГУ">
-                    <div class="element__info-section">
-                        <p class="element__description">Московский государственный университет</p>
-                        <button class="element__like-button" type="button"></button>
-                    </div>
-                </figure>                   
+            <section class="elements">                   
             </section>
         </main>
-        
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
-
-        <div class="popup popup__edit">
+        <div class="popup popup-edit">
             <div class="popup__container">
-                <form class="popup__form" name="popup-form">
+                <form class="popup__form popup__form_type_edit" name="popup-form-edit">
                     <button class="popup__close-button popup__close-button_edit" type="button"></button>
                     <fieldset class="popup__fieldset">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <input type="text" class="popup__input popup__input_name" name="popup-name" placeholder="Имя">
-                        <input type="text" class="popup__input popup__input_job" name="popup-job" placeholder="Род занятий">
+                        <input type="text" class="popup__input popup__input_type_name" name="popup-name" placeholder="Имя">
+                        <input type="text" class="popup__input popup__input_type_job" name="popup-job" placeholder="Род занятий">
                     </fieldset>
-                    <button class="popup__submit-button" type="submit">Сохранить</button>
+                    <button class="popup__submit-button popup__submit-button_type_edit" type="submit">Сохранить</button>
                 </form>    
             </div>
         </div>
-        <div class="popup popup__add">
+        <div class="popup popup-add">
             <div class="popup__container">
-                <form class="popup__form" name="popup-form">
+                <form class="popup__form popup__form_type_add" name="popup-form-add">
                     <button class="popup__close-button popup__close-button_add" type="button"></button>
                     <fieldset class="popup__fieldset">
                         <h2 class="popup__title">Новое место</h2>
-                        <input type="text" class="popup__input popup__input_place" name="popup-place" placeholder="Название">
-                        <input type="text" class="popup__input popup__input_url" name="popup-url" placeholder="Ссылка на картинку">
+                        <input type="text" class="popup__input popup__input_type_place" name="popup-name" placeholder="Название">
+                        <input type="text" class="popup__input popup__input_type_link" name="popup-link" placeholder="Ссылка на картинку">
                     </fieldset>
-                    <button class="popup__submit-button" type="submit">Создать</button>
+                    <button class="popup__submit-button popup__submit-button_type_add" type="submit">Создать</button>
                 </form>    
             </div>
         </div>
+        <div class="popup popup-img">
+            <div class="popup__content">  
+                <button class="popup__close-button popup__close-button_img" type="button"></button>
+                <img src="" class="popup__img" alt="">
+                <p class="popup__place"></p>
+            </div>
+        </div>
     </div>
+    <template id="element-template">
+        <figure class="element">
+            <button class="element__delete-button" type="button"></button>
+            <img src="" class="element__img" alt="">
+            <div class="element__info-section">
+                <p class="element__description"></p>
+                <button class="element__like-button" type="button"></button>
+            </div>
+        </figure>
+    </template>
     <script src="./scripts/script.js"></script> 
 </body>
 </html>

@@ -2,7 +2,9 @@
 @import url(./__img/element__img.css);
 @import url(./__description/element__description.css);
 @import url(./__like-button/element__like-button.css);
+@import url(./__delete-button/element__delete-button.css);
 .element {
+    position: relative;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;

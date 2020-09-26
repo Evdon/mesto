@@ -1,3 +1,4 @@
+@import url(./_active/element__like-button_active.css);
 .element__like-button {
     border: 0;
     background-image: url(../../../images/Vector.svg);
