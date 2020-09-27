@@ -72,8 +72,14 @@ function formSubmitHandler (evt) {
 
 function initCards(){
     for(let i = 0; i < initialCards.length; i++){
-        getCardElement(initialCards[i].place, initialCards[i].link);
+        const cardElement = getCardElement(initialCards[i].place, initialCards[i].link);
+        cardContainer.prepend(cardElement);
     }
+}
+
+function addCard(){
+    const cardElement = getCardElement(place.value, link.value);
+    cardContainer.prepend(cardElement);
 }
 
 function getCardElement(placeValue, linkValue){
@@ -99,8 +105,8 @@ function getCardElement(placeValue, linkValue){
         popupImage.setAttribute('src', linkValue);
         popupImage.setAttribute('alt', placeValue);
     });
-
-    cardContainer.prepend(cardElement);
+    
+    return cardElement;
 }
 
 initCards();
@@ -112,7 +118,7 @@ formElementEdit.addEventListener('submit', formSubmitHandler);
 closeBtnImg.addEventListener('click',  popImgSwitch);
 formElementAdd.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    getCardElement(place.value, link.value);
+    addCard();
     
     place.value = '';
     link.value = '';
