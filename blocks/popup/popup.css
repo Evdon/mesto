@@ -9,6 +9,7 @@
 @import url(./__img/popup__img.css);
 @import url(./__content/popup__content.css);
 @import url(./__place/popup__place.css);
+@import url(./__input-error/popup__input-error.css);
 .popup {
     visibility: hidden;
     position: fixed;

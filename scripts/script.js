@@ -4,6 +4,8 @@ const closeBtnAdd = document.querySelector('.popup__close-button_add');
 const closeBtnEdit = document.querySelector('.popup__close-button_edit');
 const closeBtnImg = document.querySelector('.popup__close-button_img');
 const popup = document.querySelector('.popup');
+const popupForm = document.querySelector('.popup__form');
+const popupInput = document.querySelector('.popup__input');
 const popupAdd = document.querySelector('.popup-add');
 const popupEdit = document.querySelector('.popup-edit');
 const popupImg = document.querySelector('.popup-img');
@@ -18,6 +20,7 @@ const formElementAdd = document.querySelector('.popup__form_type_add');
 const cardContainer = document.querySelector('.elements');
 const place = document.querySelector('.popup__input_type_place');
 const link = document.querySelector('.popup__input_type_link');
+const overlay = document.querySelector('.popup__container');
 const initialCards = [
     {
         place: 'Архыз',
@@ -45,9 +48,18 @@ const initialCards = [
     }
 ];
 
+function callback(evt) {
+    evt.stopPropagation();
+  }
+
+function popupToggle(){
+    const popupOpened = document.querySelector('.popup_opened');
+    popupOpened.classList.toggle('popup_opened');
+    
+}
 function popEditSwitch(){
     popupEdit.classList.toggle('popup_opened');
-
+    
     if (popup.classList.contains('popup_opened')){
         nameInput.value = name.textContent;
         jobInput.value = job.textContent;
@@ -107,12 +119,17 @@ function getCardElement(placeValue, linkValue){
     });
     
     return cardElement;
-}
+};
+
 
 initCards();
+popupForm.addEventListener('click', callback);
 addBtn.addEventListener('click', popAddSwitch)
 closeBtnAdd.addEventListener('click', popAddSwitch);
-editBtn.addEventListener('click', popEditSwitch);
+editBtn.addEventListener('click', function (){
+    popEditSwitch()
+    enableValidation();
+});
 closeBtnEdit.addEventListener('click', popEditSwitch);
 formElementEdit.addEventListener('submit', formSubmitHandler);
 closeBtnImg.addEventListener('click',  popImgSwitch);
@@ -124,6 +141,9 @@ formElementAdd.addEventListener('submit', function (evt) {
     link.value = '';
     popAddSwitch();
 });
-
-
-
+popup.addEventListener('click',  popupToggle);
+document.addEventListener('keydown',  function (evt) {
+    if(evt.key == 'Escape'){
+        popupToggle();
+    }
+});
