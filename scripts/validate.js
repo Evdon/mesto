@@ -68,6 +68,4 @@ enableValidation({
     errorClass: 'popup__input-error_active'
   }); 
 
-nameInput.addEventListener('input', function () {
-    checkInputValidity(popupForm, popupInput);
-});
+

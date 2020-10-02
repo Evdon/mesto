@@ -18,12 +18,12 @@
                     <div class="profile__info">
                         <div class="profile__name-container">
                             <h1 class="profile__name" id="name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button" type="button"></button>
+                            <button class="profile__edit-button" type="button" id="edit"></button>
                         </div>
                         <p class="profile__job" id='job'>Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="button"></button>
+                <button class="profile__add-button" type="button" id="add"></button>
             </section>
             <section class="elements">                   
             </section>
@@ -31,11 +31,11 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
-        <div class="popup popup-edit">
+        <div class="popup popup-edit" id="popup-edit">
             <div class="popup__container">
                 <form class="popup__form popup__form_type_edit" name="popup-form-edit" novalidate>
                     <fieldset class="popup__fieldset">
-                        <button class="popup__close-button popup__close-button_edit" type="button"></button>
+                        <button class="popup__close-button popup__close-button_edit" type="button" id="edit"></button>
                             <h2 class="popup__title">Редактировать профиль</h2>
                             <input type="text" class="popup__input popup__input_type_name" id="name-input" placeholder="Имя" minlength="2" maxlength="40" required>
                             <span class="popup__input-error" id="name-input-error"></span>
@@ -46,24 +46,24 @@
                 </form>    
             </div>
         </div>
-        <div class="popup popup-add">
+        <div class="popup popup-add" id="popup-add">
             <div class="popup__container">
                 <form class="popup__form popup__form_type_add" name="popup-form-add" novalidate>
                     <fieldset class="popup__fieldset">  
-                        <button class="popup__close-button popup__close-button_add" type="button"></button>                        
+                        <button class="popup__close-button popup__close-button_add" type="button" id="add"></button>                        
                             <h2 class="popup__title">Новое место</h2>
                             <input type="text" class="popup__input popup__input_type_place" id="place-input" placeholder="Название" minlength="2" maxlength="30" required>
                             <span class="popup__input-error" id="place-input-error"></span>
                             <input type="url" class="popup__input popup__input_type_link" id="link-input" placeholder="Ссылка на картинку" required>
                             <span class="popup__input-error" id="link-input-error"></span>                        
-                        <button class="popup__submit-button popup__submit-button_type_add" type="submit">Создать</button>
+                        <button class="popup__submit-button popup__submit-button_type_add popup__submit-button_inactive" type="submit" disabled="disabled">Создать</button>
                     </fieldset>
                 </form>    
             </div>
         </div>
-        <div class="popup popup-img">
+        <div class="popup popup-img" id="popup-img">
             <div class="popup__content">  
-                <button class="popup__close-button popup__close-button_img" type="button"></button>
+                <button class="popup__close-button popup__close-button_img" type="button" id="img"></button>
                 <img src="" class="popup__img" alt="">
                 <p class="popup__place"></p>
             </div>
@@ -72,14 +72,15 @@
     <template id="element-template">
         <figure class="element">
             <button class="element__delete-button" type="button"></button>
-            <img src="" class="element__img" alt="">
+            <img src="" class="element__img" alt="" id="img">
             <div class="element__info-section">
                 <p class="element__description"></p>
                 <button class="element__like-button" type="button"></button>
             </div>
         </figure>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/script.js"></script>
-    <script src="./scripts/validate.js"></script> 
+     
 </body>
 </html>
