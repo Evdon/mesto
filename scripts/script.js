@@ -6,6 +6,7 @@ const closeBtnImg = document.querySelector('.popup__close-button_img');
 const popup = document.querySelector('.popup');
 const popupForm = document.querySelector('.popup__form');
 const popupInput = document.querySelector('.popup__input');
+const popupContent = document.querySelector('.popup__content');
 const popupAdd = document.querySelector('.popup-add');
 const popupEdit = document.querySelector('.popup-edit');
 const popupImg = document.querySelector('.popup-img');
@@ -21,6 +22,7 @@ const cardContainer = document.querySelector('.elements');
 const place = document.querySelector('.popup__input_type_place');
 const link = document.querySelector('.popup__input_type_link');
 const overlay = document.querySelector('.popup__container');
+const cardTemplate = document.querySelector('#element-template').content;
 const initialCards = [
     {
         place: 'Архыз',
@@ -48,18 +50,52 @@ const initialCards = [
     }
 ];
 
+function esc (evt) {
+    if(evt.key == 'Escape'){
+        popupToggle();
+        document.removeEventListener('keydown',  esc);
+    }
+}
+
+function escClose () {
+    document.addEventListener('keydown',  esc);
+}
+
 function callback(evt) {
     evt.stopPropagation();
-  }
+}
+
 
 function popupToggle(){
     const popupOpened = document.querySelector('.popup_opened');
     popupOpened.classList.toggle('popup_opened');
-    
 }
+
+function stopProp () {
+    const formList = Array.from(document.querySelectorAll('.popup__form'));
+    formList[formList.length + 1] = popupContent;
+    console.log(formList);
+
+    formList.forEach((form) => {
+        form.addEventListener('click',  callback);
+    });
+};
+
+stopProp ();
+
+function popupTarget () {
+    const popupList = Array.from(document.querySelectorAll('.popup'));
+    
+    popupList.forEach((popup) => {
+        popup.addEventListener('click',  popupToggle);
+    });
+};
+
+popupTarget();
+
 function popEditSwitch(){
     popupEdit.classList.toggle('popup_opened');
-    
+    escClose();
     if (popup.classList.contains('popup_opened')){
         nameInput.value = name.textContent;
         jobInput.value = job.textContent;
@@ -68,10 +104,12 @@ function popEditSwitch(){
 
 function popAddSwitch(){
     popupAdd.classList.toggle('popup_opened');
+    escClose();
 }
 
 function popImgSwitch(){
     popupImg.classList.toggle('popup_opened');
+    escClose();
 }
 
 function formSubmitHandler (evt) {
@@ -95,7 +133,6 @@ function addCard(){
 }
 
 function getCardElement(placeValue, linkValue){
-    const cardTemplate = document.querySelector('#element-template').content;
     const cardElement = cardTemplate.cloneNode(true);
     const cardImg = cardElement.querySelector('img');
 
@@ -123,7 +160,6 @@ function getCardElement(placeValue, linkValue){
 
 
 initCards();
-popupForm.addEventListener('click', callback);
 addBtn.addEventListener('click', popAddSwitch)
 closeBtnAdd.addEventListener('click', popAddSwitch);
 editBtn.addEventListener('click', function (){
@@ -141,9 +177,5 @@ formElementAdd.addEventListener('submit', function (evt) {
     link.value = '';
     popAddSwitch();
 });
-popup.addEventListener('click',  popupToggle);
-document.addEventListener('keydown',  function (evt) {
-    if(evt.key == 'Escape'){
-        popupToggle();
-    }
-});
+popupForm.addEventListener('click', callback);
+

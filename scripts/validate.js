@@ -24,8 +24,6 @@ function setEventListeners (formElement) {
     const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
     const buttonElement = formElement.querySelector('.popup__submit-button');
   
-    toggleButtonState(inputList, buttonElement);
-
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function () {
             checkInputValidity(formElement, inputElement);
@@ -54,8 +52,10 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement) => {
     if(hasInvalidInput(inputList)){
         buttonElement.classList.add('popup__submit-button_inactive');
+        buttonElement.setAttribute('disabled', 'disabled');
     } else {
         buttonElement.classList.remove('popup__submit-button_inactive');
+        buttonElement.removeAttribute('disabled', 'disabled');
     }
 }
 
