@@ -95,14 +95,14 @@ function escClose (popupClass){
 
 
 export default function openPopup (popup){
-    const popupClass = document.querySelector(`#popup-${popup.id}`);
+    const popupClass = document.querySelector(`#popup-${popup.name}`);
     popup.addEventListener('keydown', escClose(popupClass));
-    if(popup.id === 'img'){
+    if(popup.name === 'img'){
         popupClass.classList.add('popup_opened');
     } else {
         popup.addEventListener('click', function (){
             popupClass.classList.add('popup_opened');
-            if(popup.id === 'edit'){
+            if(popup.name === 'edit'){
                 if (popupClass.classList.contains('popup_opened')){
                     nameInput.value = name.textContent;
                     jobInput.value = job.textContent;
@@ -113,7 +113,7 @@ export default function openPopup (popup){
 }
 
 function closePopup (popup){
-    const popupClass = document.querySelector(`#popup-${popup.id}`);
+    const popupClass = document.querySelector(`#popup-${popup.name}`);
     popup.removeEventListener('keydown', escClose(popupClass));
     popup.addEventListener('click', function (){   
         popupClass.classList.remove('popup_opened');

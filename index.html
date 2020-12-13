@@ -18,12 +18,12 @@
                     <div class="profile__info">
                         <div class="profile__name-container">
                             <h1 class="profile__name" id="name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button" type="button" id="edit"></button>
+                            <button class="profile__edit-button" type="button" name="edit"></button>
                         </div>
                         <p class="profile__job" id='job'>Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button" type="button" id="add"></button>
+                <button class="profile__add-button" type="button" name="add"></button>
             </section>
             <section class="elements">                   
             </section>
@@ -35,7 +35,7 @@
             <div class="popup__container">
                 <form class="popup__form popup__form_type_edit" name="popup-form-edit" novalidate>
                     <fieldset class="popup__fieldset">
-                        <button class="popup__close-button popup__close-button_edit" type="button" id="edit"></button>
+                        <button class="popup__close-button popup__close-button_edit" type="button" name="edit"></button>
                             <h2 class="popup__title">Редактировать профиль</h2>
                             <input type="text" class="popup__input popup__input_type_name" id="name-input" placeholder="Имя" minlength="2" maxlength="40" required>
                             <span class="popup__input-error" id="name-input-error"></span>
@@ -50,7 +50,7 @@
             <div class="popup__container">
                 <form class="popup__form popup__form_type_add" name="popup-form-add" novalidate>
                     <fieldset class="popup__fieldset">  
-                        <button class="popup__close-button popup__close-button_add" type="button" id="add"></button>                        
+                        <button class="popup__close-button popup__close-button_add" type="button" name="add"></button>                        
                             <h2 class="popup__title">Новое место</h2>
                             <input type="text" class="popup__input popup__input_type_place" id="place-input" placeholder="Название" minlength="2" maxlength="30" required>
                             <span class="popup__input-error" id="place-input-error"></span>
@@ -63,7 +63,7 @@
         </div>
         <div class="popup popup-img" id="popup-img">
             <div class="popup__content">  
-                <button class="popup__close-button popup__close-button_img" type="button" id="img"></button>
+                <button class="popup__close-button popup__close-button_img" type="button" name="img"></button>
                 <img src=" " class="popup__img" alt=" ">
                 <p class="popup__place"></p>
             </div>
@@ -72,7 +72,7 @@
     <template class="element-template">
         <figure class="element">
             <button class="element__delete-button" type="button"></button>
-            <img src=" " class="element__img" alt=" " id="img">
+            <img src=" " class="element__img" alt=" " name="img">
             <div class="element__info-section">
                 <p class="element__description"></p>
                 <button class="element__like-button" type="button"></button>
