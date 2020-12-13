@@ -1,14 +1,14 @@
 @import url(./_active/popup__input-error_active.css);
 .popup__input-error{
     display: none;
-    position: absolute;
+    position: relative;
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 15px;
     color: #FF0000;
-    margin: 5px 0 0;
+    margin: 5px 0 -20px;
     max-width: 358px;
     text-overflow: ellipsis;
     white-space: nowrap;
