@@ -1,4 +1,4 @@
-import openPopup from '../scripts/script.js';
+import {openPopup, imgPopup} from '../scripts/script.js';
 
 export default class Card {
     constructor(data, cardSelector) {
@@ -38,7 +38,7 @@ export default class Card {
         });
 
         this._element.querySelector('img').addEventListener('click', () => {
-            openPopup(this._element.querySelector('img'));
+            openPopup(imgPopup);
             document.querySelector('.popup__place').textContent = this._place;
             document.querySelector('.popup__img').setAttribute('src', this._link);
             document.querySelector('.popup__img').setAttribute('alt', this._place);

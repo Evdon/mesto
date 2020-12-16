@@ -1,3 +1,5 @@
+
+
 export default class FormValidator  {
     constructor(settings, formElement) {
         this._formElement = formElement;
@@ -14,15 +16,15 @@ export default class FormValidator  {
 
     _showError(inputElement, errorMessage) {
         this._errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-        inputElement.classList.add('popup__input_type_error');
+        inputElement.classList.add(this._settings.inputErrorClass);
         this._errorElement.textContent = errorMessage;
-        this._errorElement.classList.add('popup__input-error_active');
+        this._errorElement.classList.add(this._settings.errorClass);
     }
     
     _hideError(inputElement) {
         this._errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-        inputElement.classList.remove('popup__input_type_error');
-        this._errorElement.classList.remove('popup__input-error_active');
+        inputElement.classList.remove(this._settings.inputErrorClass);
+        this._errorElement.classList.remove(this._settings.errorClass);
         this._errorElement.textContent = '';
     }
     
@@ -33,11 +35,11 @@ export default class FormValidator  {
     
     _toggleButtonState(inputList, buttonElement)  {
         if(this._hasInvalidInput(inputList)){
-            buttonElement.classList.add('popup__submit-button_inactive');
-            buttonElement.setAttribute('disabled', 'disabled');
+            buttonElement.classList.add(this._settings.inactiveButtonClass);
+            buttonElement.disabled = true;
         } else {
-            buttonElement.classList.remove('popup__submit-button_inactive');
-            buttonElement.removeAttribute('disabled', 'disabled');
+            buttonElement.classList.remove(this._settings.inactiveButtonClass);
+            buttonElement.disabled = false;
         }
     }
 
@@ -49,7 +51,7 @@ export default class FormValidator  {
 
     _setEventListeners() {
         this._inputList = Array.from(this._formElement.querySelectorAll(this._settings.inputSelector));
-        this._buttonElement = this._formElement.querySelector('.popup__submit-button');
+        this._buttonElement = this._formElement.querySelector(this._settings.submitButtonSelector);
       
         this._inputList.forEach(inputElement => {
             inputElement.addEventListener('input',  () => {
