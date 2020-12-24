@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body>
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+            <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип">
         </header>
         <main class="content">
             <section class="profile">
                 <div class="profile__info-container">
-                    <img src="./images/avatar.svg" class="profile__avatar" alt="Аватар"> 
+                    <img src="<%=require('./images/avatar.svg')%>" class="profile__avatar" alt="Аватар"> 
                     <div class="profile__info">
                         <div class="profile__name-container">
                             <h1 class="profile__name" id="name">Жак-Ив Кусто</h1>

@@ -1,10 +1,9 @@
-import {openPopup, imgPopup} from '../scripts/script.js';
-
 export default class Card {
-    constructor(data, cardSelector) {
-        this._place = data.place;
-        this._link = data.link;
+    constructor({ handleCardClick, place, link }, cardSelector) {
+        this._place = place;
+        this._link = link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate(){
@@ -29,6 +28,11 @@ export default class Card {
     }
 
     _setEventListeners() {
+        this._element.querySelector('.element__img').addEventListener('click', () => {
+            this._handleCardClick(this._place, this._link);
+        })
+
+
         this._element.querySelector('.element__delete-button').addEventListener('click', (evt) => {
             evt.target.closest('.element').remove();
         });
@@ -38,7 +42,6 @@ export default class Card {
         });
 
         this._element.querySelector('img').addEventListener('click', () => {
-            openPopup(imgPopup);
             document.querySelector('.popup__place').textContent = this._place;
             document.querySelector('.popup__img').setAttribute('src', this._link);
             document.querySelector('.popup__img').setAttribute('alt', this._place);
