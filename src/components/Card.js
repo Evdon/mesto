@@ -1,50 +1,50 @@
 export default class Card {
-    constructor({ handleCardClick, place, link }, cardSelector) {
-        this._place = place;
-        this._link = link;
-        this._cardSelector = cardSelector;
-        this._handleCardClick = handleCardClick;
-    }
+  constructor({ handleCardClick, place, link }, cardSelector) {
+    this._place = place;
+    this._link = link;
+    this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
+  }
 
-    _getTemplate(){
-        const cardElement = document
-        .querySelector(this._cardSelector)
-        .content
-        .querySelector('.element')
-        .cloneNode(true);
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".element")
+      .cloneNode(true);
 
-        return cardElement;
-    }
+    return cardElement;
+  }
 
-    generateCard(){
-        this._element = this._getTemplate();
-        this._element.querySelector('.element__img').src = this._link;
-        this._element.querySelector('.element__img').alt =  this._place;
-        this._element.querySelector('.element__description').textContent = this._place;
+  generateCard() {
+    this._element = this._getTemplate();
+    this._element.querySelector(".element__img").src = this._link;
+    this._element.querySelector(".element__img").alt = this._place;
+    this._element.querySelector(
+      ".element__description"
+    ).textContent = this._place;
 
-        this._setEventListeners();
+    this._setEventListeners();
 
-        return this._element;
-    }
+    return this._element;
+  }
 
-    _setEventListeners() {
-        this._element.querySelector('.element__img').addEventListener('click', () => {
-            this._handleCardClick(this._place, this._link);
-        })
+  _setEventListeners() {
+    this._element
+      .querySelector(".element__img")
+      .addEventListener("click", () => {
+        this._handleCardClick(this._place, this._link);
+      });
 
+    this._element
+      .querySelector(".element__delete-button")
+      .addEventListener("click", (evt) => {
+        evt.target.closest(".element").remove();
+      });
 
-        this._element.querySelector('.element__delete-button').addEventListener('click', (evt) => {
-            evt.target.closest('.element').remove();
-        });
-
-        this._element.querySelector('.element__like-button').addEventListener('click', (evt) => {
-            evt.target.classList.toggle('element__like-button_active');
-        });
-
-        this._element.querySelector('img').addEventListener('click', () => {
-            document.querySelector('.popup__place').textContent = this._place;
-            document.querySelector('.popup__img').setAttribute('src', this._link);
-            document.querySelector('.popup__img').setAttribute('alt', this._place);
-        });
-    }
+    this._element
+      .querySelector(".element__like-button")
+      .addEventListener("click", (evt) => {
+        evt.target.classList.toggle("element__like-button_active");
+      });
+  }
 }
