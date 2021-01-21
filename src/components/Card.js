@@ -65,9 +65,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__img")
-      .addEventListener("click", () => {
+    this._cardImg.addEventListener("click", () => {
         this._handleCardClick(this._name, this._link);
       });
 
