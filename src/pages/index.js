@@ -8,9 +8,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithconfirm from "../components/PopupWithConfirm";
-import {editBtn, addBtn, avatarBtn, popupContent, userNameElement, userInfoElement, nameInput, aboutInput, cardSelector, photoListSelector, popupSubmitBtnAdd, validSettings, formsList, avatarSelector, addForm, editForm, avatarForm} from "../utils/constants.js";
-
-
+import {editBtn, addBtn, avatarBtn, popupContent, userNameElement, userInfoElement, nameInput, aboutInput, cardSelector, photoListSelector, validSettings, formsList, avatarSelector, userNameSelector, userInfoSelector, addForm, editForm, avatarForm} from "../utils/constants.js";
 
 let thisCard = null;
 let userId = null;
@@ -34,7 +32,7 @@ const popupTypeConfirm = new PopupWithconfirm(".popup-delete", {
 });
 popupTypeConfirm.setEventListeners();
 
-const userInfo = new UserInfo({ userNameElement, userInfoElement, avatarSelector });
+const userInfo = new UserInfo({ userNameSelector, userInfoSelector, avatarSelector });
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-19',
