@@ -3,6 +3,8 @@
 @import url(./__description/element__description.css);
 @import url(./__like-button/element__like-button.css);
 @import url(./__delete-button/element__delete-button.css);
+@import url(./__likes-count/element__likes-count.css);
+@import url(./__like-container/element__like-container.css);
 .element {
     position: relative;
     display: flex;
