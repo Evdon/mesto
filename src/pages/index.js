@@ -8,7 +8,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithconfirm from "../components/PopupWithConfirm";
-import {editBtn, addBtn, avatarBtn, popupContent, userNameElement, userInfoElement, nameInput, aboutInput, cardSelector, photoListSelector, popupSubmitBtnAdd, validSettings, formsList, avatarSelector} from "../utils/constants.js";
+import {editBtn, addBtn, avatarBtn, popupContent, userNameElement, userInfoElement, nameInput, aboutInput, cardSelector, photoListSelector, popupSubmitBtnAdd, validSettings, formsList, avatarSelector, addForm, editForm, avatarForm} from "../utils/constants.js";
 
 
 
@@ -50,11 +50,17 @@ api.getUserInfo()
     userInfo.setUserInfo(data);
     userId = data._id;
   })
+  .catch((err) => {
+    console.log(err);
+  });
 
 api.getCards()
   .then((data) => {
     const cardSet = data;
     cardList.renderItems(cardSet.reverse());
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 function callback(evt) {
@@ -75,7 +81,7 @@ function handleCardClick(place, link) {
   popupTypeImg.open(place, link);
 }
 
-function newCard(data){
+function createCard(data){
   const card = new Card( 
     cardSelector, data, userId, {
       handleCardClick,
@@ -103,9 +109,14 @@ function newCard(data){
       }
     }
   );
-    const cardElement = card.generateCard();
-    cardList.addItem(cardElement); 
-    card.setLikeCount(data);
+  const cardElement = card.generateCard();
+  card.setLikeCount(data);
+  return cardElement;
+}
+
+function newCard(data){
+  const cardElement = createCard(data);
+  cardList.addItem(cardElement);
 };
 
 const cardList = new Section(
@@ -117,16 +128,15 @@ const cardList = new Section(
   photoListSelector
 );
 
+const addValidator = new FormValidator(validSettings, addForm);
+addValidator.enableValidation();
 
+const editValidator = new FormValidator(validSettings, editForm);
+editValidator.enableValidation();
 
-const setFormValidation = (formElement) => {
-  const formValidator = new FormValidator(validSettings, formElement);
-  formValidator.enableValidation();
-};
+const avatarValidator = new FormValidator(validSettings, avatarForm);
+avatarValidator.enableValidation();
 
-formsList.forEach((form) => {
-  setFormValidation(form);
-});
 
 const popupTypeAdd = new PopupWithForm({
   selectorPopup: ".popup-add",
@@ -141,8 +151,6 @@ const popupTypeAdd = new PopupWithForm({
       })
       .finally(() =>{
         popupTypeAdd.renderLoading(false);
-        popupSubmitBtnAdd.classList.add(validSettings.inactiveButtonClass);
-        popupSubmitBtnAdd.setAttribute("disabled", "disabled");
         popupTypeAdd.close();
       })
   },
@@ -151,6 +159,8 @@ const popupTypeAdd = new PopupWithForm({
 popupTypeAdd.setEventListeners();
 
 addBtn.addEventListener("click", () => {
+  addForm.reset();
+  addValidator.resetValidation();
   popupTypeAdd.open();
 });
 
@@ -178,6 +188,7 @@ editBtn.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
   nameInput.value = userData.name;
   aboutInput.value = userData.about;
+  editValidator.resetValidation();
   popupTypeEdit.open();
 });
 
@@ -202,5 +213,7 @@ const popupTypeAvatar = new PopupWithForm({
 popupTypeAvatar.setEventListeners();
 
 avatarBtn.addEventListener("click", () => {
+  avatarForm.reset();
+  avatarValidator.resetValidation();
   popupTypeAvatar.open();
 });

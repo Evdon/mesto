@@ -64,23 +64,6 @@ export default class Card {
     });
   }
 
-  generateCard() {
-    this._element = this._getTemplate();
-    this._deleteButton = this._element.querySelector(".element__delete-button");
-    this._photoLikesCount = this._element.querySelector(".element__likes-count");
-    this._likeButton = this._element.querySelector(".element__like-button");
-    this._element.querySelector(".element__img").src = this._link;
-    this._element.querySelector(".element__img").alt = this._name;
-    this._element.querySelector(".element__description").textContent = this._name;
-    this._setEventListeners();
-    this._checkBelongCard();
-    this._checkLike();
-
-    return this._element;
-  }
-
-
-
   _setEventListeners() {
     this._element
       .querySelector(".element__img")
@@ -94,12 +77,29 @@ export default class Card {
         this._handleDeleteClick(this._data);
       });
 
-      this._likeButton.addEventListener("click", () => {
-        if (this._likeButton.classList.contains("element__like-button_active")) {
-          this._dislike(this._data);
-        } else {
-          this._like(this._data);
-        }
-      });
+    this._likeButton.addEventListener("click", () => {
+      if (this._likeButton.classList.contains("element__like-button_active")) {
+        this._dislike(this._data);
+      } else {
+        this._like(this._data);
+      }
+    });
   }
+
+  generateCard() {
+    this._element = this._getTemplate();
+    this._deleteButton = this._element.querySelector(".element__delete-button");
+    this._photoLikesCount = this._element.querySelector(".element__likes-count");
+    this._likeButton = this._element.querySelector(".element__like-button");
+    this._cardImg = this._element.querySelector(".element__img");
+    this._cardImg.src = this._link;
+    this._cardImg.alt = this._name;
+    this._element.querySelector(".element__description").textContent = this._name;
+    this._setEventListeners();
+    this._checkBelongCard();
+    this._checkLike();
+
+    return this._element;
+  }
+  
 }
