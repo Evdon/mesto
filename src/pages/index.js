@@ -8,7 +8,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithconfirm from "../components/PopupWithConfirm";
-import {editBtn, addBtn, avatarBtn, popupContent, userNameElement, userInfoElement, nameInput, aboutInput, cardSelector, photoListSelector, validSettings, formsList, avatarSelector, userNameSelector, userInfoSelector, addForm, editForm, avatarForm} from "../utils/constants.js";
+import {editBtn, addBtn, avatarBtn, popupContent, nameInput, aboutInput, cardSelector, photoListSelector, validSettings, formsList, avatarSelector, userNameSelector, userInfoSelector, addForm, editForm, avatarForm} from "../utils/constants.js";
 
 let thisCard = null;
 let userId = null;
